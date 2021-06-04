@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Corona Infos</string>
+    <string name="covid_vaccinations_single">Erstimpfungen</string>
+    <string name="covid_vaccinations_full">Voll geimpft</string>
+</resources>
