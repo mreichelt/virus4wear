@@ -16,8 +16,8 @@ class VaccinationTest {
         runBlocking {
             val newestData = downloadVaccinationData()
             println(newestData)
-            assertTrue(newestData.firstVaccination > 0.44)
-            assertTrue(newestData.fullVaccination > 0.18)
+            assertTrue(newestData.firstVaccination.value > 0.44)
+            assertTrue(newestData.fullVaccination.value > 0.18)
         }
     }
 
@@ -186,7 +186,10 @@ class VaccinationTest {
 
     @Test
     fun parseTsv() {
-        assertEquals(VaccinationData(0.446f, 0.196f), parseVaccinations(tsv.lines()))
+        assertEquals(
+            VaccinationData(Percent(0.446f), Percent(0.196f)),
+            parseVaccinations(tsv.lines())
+        )
     }
 
 }

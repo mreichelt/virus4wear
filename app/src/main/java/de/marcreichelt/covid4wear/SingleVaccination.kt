@@ -6,14 +6,11 @@ import android.content.Context
 import android.content.Intent
 import android.graphics.drawable.Icon
 import android.support.wearable.complications.ComplicationData
-import android.support.wearable.complications.ComplicationData.TYPE_RANGED_VALUE
 import android.support.wearable.complications.ComplicationManager
 import android.support.wearable.complications.ComplicationProviderService
-import android.support.wearable.complications.ComplicationText
 import android.util.Log
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
-import java.text.DecimalFormat
 
 
 class SingleVaccinationComplicationTapReceiver : BroadcastReceiver() {
@@ -34,27 +31,11 @@ class SingleVaccinationComplicationProviderService : ComplicationProviderService
         Log.d(tag, "onComplicationActivated() id: $complicationId")
         GlobalScope.launch {
             val newestData = downloadVaccinationData()
-
-            val numberText = DecimalFormat.getPercentInstance()
-                .apply { maximumFractionDigits = 1 }
-                .format(newestData.firstVaccination)
-            Log.d(tag, numberText)
-
-            val complicationData: ComplicationData? =
-                when (dataType) {
-                    TYPE_RANGED_VALUE -> ComplicationData.Builder(TYPE_RANGED_VALUE)
-                        .setShortText(ComplicationText.plainText(numberText))
-                        .setMinValue(0f)
-                        .setValue(newestData.firstVaccination * 100)
-                        .setMaxValue(100f)
-                        .setIcon(Icon.createWithResource(baseContext, R.drawable.ic_needle_single))
-                        .build()
-                    else -> {
-                        Log.w(tag, "Unexpected complication type $dataType")
-                        null
-                    }
-                }
-
+            val complicationData = complicationDataForPercent(
+                dataType,
+                newestData.firstVaccination,
+                Icon.createWithResource(baseContext, R.drawable.ic_needle_single)
+            )
             manager.updateComplicationData(complicationId, complicationData)
         }
     }
@@ -78,27 +59,8 @@ class SingleVaccinationComplicationProviderService : ComplicationProviderService
 //        )
 
         // TODO: get from preferences
-        val firstVaccinations = 0.433f
-        val fullVaccinations = 0.17f
-        val numberText = DecimalFormat.getPercentInstance()
-            .apply { maximumFractionDigits = 1 }
-            .format(firstVaccinations)
-        Log.d(tag, numberText)
 
-        val complicationData: ComplicationData? =
-            when (dataType) {
-                TYPE_RANGED_VALUE -> ComplicationData.Builder(TYPE_RANGED_VALUE)
-                    .setShortText(ComplicationText.plainText(numberText))
-                    .setMinValue(0f)
-                    .setValue(firstVaccinations * 100)
-                    .setMaxValue(100f)
-                    .setIcon(Icon.createWithResource(baseContext, R.drawable.ic_needle_single))
-                    .build()
-                else -> {
-                    Log.w(tag, "Unexpected complication type $dataType")
-                    null
-                }
-            }
+        val complicationData: ComplicationData? = null
 
         if (complicationData != null) {
             complicationManager.updateComplicationData(complicationId, complicationData)

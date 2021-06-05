@@ -26,10 +26,10 @@ fun parseVaccinations(tsvLines: List<String>): VaccinationData {
     val fullVaccinationIndex = headers.indexOf("impf_quote_voll")
     require(firstVaccinationIndex != -1 && fullVaccinationIndex != -1)
 
-    val firstVaccination = newestData[firstVaccinationIndex].toFloat()
-    val fullVaccination = newestData[fullVaccinationIndex].toFloat()
+    val firstVaccination = Percent(newestData[firstVaccinationIndex].toFloat())
+    val fullVaccination = Percent(newestData[fullVaccinationIndex].toFloat())
 
     return VaccinationData(firstVaccination, fullVaccination)
 }
 
-data class VaccinationData(val firstVaccination: Float, val fullVaccination: Float)
+data class VaccinationData(val firstVaccination: Percent, val fullVaccination: Percent)
