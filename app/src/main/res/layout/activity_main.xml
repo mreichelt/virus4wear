@@ -8,144 +8,139 @@
     android:layout_centerHorizontal="true"
     android:layout_centerVertical="true">
 
-    <LinearLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
         android:paddingStart="?android:listPreferredItemPaddingStart"
         android:paddingTop="?android:dialogPreferredPadding"
         android:paddingEnd="?android:listPreferredItemPaddingEnd"
         android:paddingBottom="?android:dialogPreferredPadding">
 
-        <androidx.constraintlayout.widget.ConstraintLayout
+        <TextView
+            android:id="@+id/title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/app_name"
+            android:textAppearance="@style/android:TextAppearance.Material.Body2"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.4"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <android.support.wearable.view.ProgressSpinner
+            android:id="@+id/loading"
+            android:layout_width="22dp"
+            android:layout_height="22dp"
+            android:layout_margin="4dp"
+            android:visibility="invisible"
+            app:layout_constraintBaseline_toBaselineOf="@+id/title"
+            app:layout_constraintStart_toEndOf="@id/title"
+            tools:visibility="visible" />
+
+        <LinearLayout
+            android:id="@+id/content"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/title">
 
-            <TextView
-                android:id="@+id/title"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/app_name"
-                android:textAppearance="@style/android:TextAppearance.Material.Body2"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.4"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-
-            <android.support.wearable.view.ProgressSpinner
-                android:id="@+id/loading"
-                android:layout_width="22dp"
-                android:layout_height="22dp"
-                android:layout_margin="4dp"
-                android:visibility="invisible"
-                app:layout_constraintBaseline_toBaselineOf="@+id/title"
-                app:layout_constraintStart_toEndOf="@id/title"
-                tools:visibility="visible" />
-
-            <LinearLayout
-                android:id="@+id/content"
+            <LinearLayout xmlns:app="http://schemas.android.com/apk/res-auto"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/title">
+                android:layout_marginTop="8dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                tools:layout_height="match_parent">
 
-                <LinearLayout xmlns:app="http://schemas.android.com/apk/res-auto"
+                <android.support.wearable.view.CircledImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_needle_single"
+                    app:circle_border_color="@color/white"
+                    app:circle_border_width="2dp"
+                    app:circle_radius="18dp" />
+
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="8dp"
-                    android:gravity="center_vertical"
-                    android:orientation="horizontal"
-                    tools:layout_height="match_parent">
+                    android:layout_marginStart="8dp"
+                    android:layout_marginEnd="8dp"
+                    android:orientation="vertical">
 
-                    <android.support.wearable.view.CircledImageView
+                    <TextView
                         android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:src="@drawable/ic_needle_single"
-                        app:circle_border_color="@color/white"
-                        app:circle_border_width="2dp"
-                        app:circle_radius="18dp" />
+                        android:layout_height="match_parent"
+                        android:gravity="center_vertical"
+                        android:text="@string/covid_vaccinations_single"
+                        android:textAppearance="@style/android:TextAppearance.Material.Body1" />
 
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="8dp"
-                        android:layout_marginEnd="8dp"
-                        android:orientation="vertical">
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="match_parent"
-                            android:gravity="center_vertical"
-                            android:text="@string/covid_vaccinations_single"
-                            android:textAppearance="@style/android:TextAppearance.Material.Body1" />
-
-                        <TextView
-                            android:id="@+id/covid_vaccinations_single"
-                            android:layout_width="wrap_content"
-                            android:layout_height="match_parent"
-                            android:gravity="center_vertical"
-                            android:textAppearance="@style/android:TextAppearance.Material.Body1"
-                            tools:text="47,3%" />
-                    </LinearLayout>
-                </LinearLayout>
-
-                <LinearLayout xmlns:app="http://schemas.android.com/apk/res-auto"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="8dp"
-                    android:gravity="center_vertical"
-                    android:orientation="horizontal"
-                    tools:layout_height="match_parent">
-
-                    <android.support.wearable.view.CircledImageView
+                    <TextView
+                        android:id="@+id/covid_vaccinations_single"
                         android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:src="@drawable/ic_needle_full"
-                        app:circle_border_color="@color/white"
-                        app:circle_border_width="2dp"
-                        app:circle_radius="18dp" />
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="8dp"
-                        android:layout_marginEnd="8dp"
-                        android:orientation="vertical">
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="match_parent"
-                            android:gravity="center_vertical"
-                            android:text="@string/covid_vaccinations_full"
-                            android:textAppearance="@style/android:TextAppearance.Material.Body1" />
-
-                        <TextView
-                            android:id="@+id/covid_vaccinations_full"
-                            android:layout_width="wrap_content"
-                            android:layout_height="match_parent"
-                            android:gravity="center_vertical"
-                            android:textAppearance="@style/android:TextAppearance.Material.Body1"
-                            tools:text="20%" />
-                    </LinearLayout>
+                        android:layout_height="match_parent"
+                        android:gravity="center_vertical"
+                        android:textAppearance="@style/android:TextAppearance.Material.Body1"
+                        tools:text="47,3%" />
                 </LinearLayout>
-
             </LinearLayout>
 
-            <TextView
-                android:id="@+id/error_data_not_loaded"
-                android:layout_width="wrap_content"
+            <LinearLayout xmlns:app="http://schemas.android.com/apk/res-auto"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:text="@string/error_data_not_loaded"
-                android:textAppearance="@style/android:TextAppearance.Material.Body1"
-                android:visibility="gone"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/title" />
+                android:layout_marginTop="8dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                tools:layout_height="match_parent">
 
-        </androidx.constraintlayout.widget.ConstraintLayout>
+                <android.support.wearable.view.CircledImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_needle_full"
+                    app:circle_border_color="@color/white"
+                    app:circle_border_width="2dp"
+                    app:circle_radius="18dp" />
 
-    </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginEnd="8dp"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:gravity="center_vertical"
+                        android:text="@string/covid_vaccinations_full"
+                        android:textAppearance="@style/android:TextAppearance.Material.Body1" />
+
+                    <TextView
+                        android:id="@+id/covid_vaccinations_full"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:gravity="center_vertical"
+                        android:textAppearance="@style/android:TextAppearance.Material.Body1"
+                        tools:text="20%" />
+                </LinearLayout>
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/error_data_not_loaded"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="8dp"
+            android:text="@string/error_data_not_loaded"
+            android:textAppearance="@style/android:TextAppearance.Material.Body1"
+            android:visibility="gone"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/title" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
 </ScrollView>

@@ -1,6 +1,7 @@
 package de.marcreichelt.covid4wear
 
 import android.app.PendingIntent
+import android.content.ComponentName
 import android.content.Context
 import android.content.Intent
 import android.graphics.drawable.Icon
@@ -8,6 +9,7 @@ import android.support.wearable.complications.ComplicationData
 import android.support.wearable.complications.ComplicationData.TYPE_RANGED_VALUE
 import android.support.wearable.complications.ComplicationData.TYPE_SHORT_TEXT
 import android.support.wearable.complications.ComplicationText
+import android.support.wearable.complications.ProviderUpdateRequester
 import android.util.Log
 
 private fun mainActivityIntent(context: Context): PendingIntent {
@@ -39,5 +41,17 @@ fun complicationDataForPercent(
             Log.w("Complications", "Unexpected complication type $complicationType")
             null
         }
+    }
+}
+
+val allComplicationProviders = listOf(
+    SingleVaccinationComplicationProviderService::class.java,
+    FullVaccinationComplicationProviderService::class.java,
+)
+
+fun updateAllComplications(context: Context) {
+    allComplicationProviders.forEach { clazz ->
+        val component = ComponentName(context, clazz)
+        ProviderUpdateRequester(context, component).requestUpdateAll()
     }
 }
