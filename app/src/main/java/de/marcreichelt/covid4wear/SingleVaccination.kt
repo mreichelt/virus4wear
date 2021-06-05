@@ -1,9 +1,6 @@
 package de.marcreichelt.covid4wear
 
-import android.content.BroadcastReceiver
 import android.content.ComponentName
-import android.content.Context
-import android.content.Intent
 import android.graphics.drawable.Icon
 import android.support.wearable.complications.ComplicationData
 import android.support.wearable.complications.ComplicationManager
@@ -11,13 +8,6 @@ import android.support.wearable.complications.ComplicationProviderService
 import android.util.Log
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
-
-
-class SingleVaccinationComplicationTapReceiver : BroadcastReceiver() {
-    override fun onReceive(context: Context, intent: Intent) {
-        println("received tap")
-    }
-}
 
 class SingleVaccinationComplicationProviderService : ComplicationProviderService() {
 
@@ -34,6 +24,7 @@ class SingleVaccinationComplicationProviderService : ComplicationProviderService
             val complicationData = complicationDataForPercent(
                 dataType,
                 newestData.firstVaccination,
+                baseContext,
                 Icon.createWithResource(baseContext, R.drawable.ic_needle_single)
             )
             manager.updateComplicationData(complicationId, complicationData)

@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <integer name="complication_update_period_in_seconds">28800</integer> <!-- 8 hours -->
+</resources>

@@ -11,8 +11,17 @@
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:supportsRtl="true"
-        android:theme="@android:style/Theme.DeviceDefault"
+        android:theme="@style/Theme.AppCompat.NoActionBar"
         android:usesCleartextTraffic="false">
+
+        <activity
+            android:name=".MainActivity"
+            android:launchMode="singleTop">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
 
         <meta-data
             android:name="com.google.android.wearable.standalone"
@@ -29,14 +38,11 @@
 
             <meta-data
                 android:name="android.support.wearable.complications.SUPPORTED_TYPES"
-                android:value="RANGED_VALUE" />
-
+                android:value="RANGED_VALUE,SHORT_TEXT" />
             <meta-data
                 android:name="android.support.wearable.complications.UPDATE_PERIOD_SECONDS"
-                android:value="18000" />
+                android:value="@integer/complication_update_period_in_seconds" />
         </service>
-
-        <receiver android:name=".SingleVaccinationComplicationTapReceiver" />
 
         <service
             android:name=".FullVaccinationComplicationProviderService"
@@ -49,14 +55,11 @@
 
             <meta-data
                 android:name="android.support.wearable.complications.SUPPORTED_TYPES"
-                android:value="RANGED_VALUE" />
-
+                android:value="RANGED_VALUE,SHORT_TEXT" />
             <meta-data
                 android:name="android.support.wearable.complications.UPDATE_PERIOD_SECONDS"
-                android:value="18000" />
+                android:value="@integer/complication_update_period_in_seconds" />
         </service>
-
-        <receiver android:name=".FullVaccinationComplicationTapReceiver" />
 
     </application>
 
