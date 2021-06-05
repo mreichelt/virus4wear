@@ -1,13 +1,13 @@
 package de.marcreichelt.covid4wear
 
-import android.content.ComponentName
 import android.graphics.drawable.Icon
-import android.support.wearable.complications.ComplicationData
 import android.support.wearable.complications.ComplicationManager
 import android.support.wearable.complications.ComplicationProviderService
 import android.util.Log
 import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.runBlocking
 
 class SingleVaccinationComplicationProviderService : ComplicationProviderService() {
 
@@ -21,6 +21,7 @@ class SingleVaccinationComplicationProviderService : ComplicationProviderService
         Log.d(tag, "onComplicationActivated() id: $complicationId")
         GlobalScope.launch {
             val newestData = downloadVaccinationData()
+            vaccinationDataCacheStore.write(newestData)
             val complicationData = complicationDataForPercent(
                 dataType,
                 newestData.firstVaccination,
@@ -42,23 +43,15 @@ class SingleVaccinationComplicationProviderService : ComplicationProviderService
     ) {
         Log.d(tag, "onComplicationUpdate() id: $complicationId")
 
-        val thisProvider = ComponentName(this, javaClass)
-
-//        val preferences = getSharedPreferences(
-//            CovidComplicationTapReceiver.COMPLICATION_PROVIDER_PREFERENCES_FILE_KEY,
-//            0
-//        )
-
-        // TODO: get from preferences
-
-        val complicationData: ComplicationData? = null
-
-        if (complicationData != null) {
+        runBlocking {
+            val cachedData = vaccinationDataCacheStore.data.first().toModel()
+            val complicationData = complicationDataForPercent(
+                dataType,
+                cachedData.firstVaccination,
+                baseContext,
+                Icon.createWithResource(baseContext, R.drawable.ic_needle_single)
+            )
             complicationManager.updateComplicationData(complicationId, complicationData)
-        } else {
-            // If no data is sent, we still need to inform the ComplicationManager, so
-            // the update job can finish and the wake lock isn't held any longer.
-            complicationManager.noUpdateRequired(complicationId)
         }
     }
 
