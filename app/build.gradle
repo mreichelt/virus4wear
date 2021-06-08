@@ -11,8 +11,8 @@ android {
         applicationId "de.marcreichelt.covid4wear"
         minSdkVersion 25
         targetSdkVersion 30
-        versionCode 3
-        versionName "1.0 Alpha"
+        versionCode 4
+        versionName "1.0"
     }
 
     buildFeatures {
@@ -42,6 +42,7 @@ dependencies {
     implementation 'com.squareup.retrofit2:retrofit:2.9.0'
     implementation "androidx.datastore:datastore:1.0.0-beta01"
     implementation "com.google.protobuf:protobuf-javalite:3.17.2"
+    implementation "androidx.work:work-runtime-ktx:2.6.0-beta01"
 
     testImplementation 'junit:junit:4.13.2'
     testImplementation "org.jetbrains.kotlinx:kotlinx-coroutines-test:$kotlin_version"

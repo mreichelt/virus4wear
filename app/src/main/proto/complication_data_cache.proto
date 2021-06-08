@@ -3,7 +3,8 @@ syntax = "proto3";
 option java_package = "de.marcreichelt.covid4wear";
 option java_multiple_files = true;
 
-message VaccinationDataCache {
+message ComplicationDataCache {
   float firstVaccination = 1;
   float fullVaccination = 2;
+  repeated int32 activeComplicationIds = 3;
 }

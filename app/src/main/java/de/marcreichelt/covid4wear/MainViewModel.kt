@@ -28,7 +28,7 @@ class MainViewModel(app: Application) : AndroidViewModel(app) {
                 val freshData = downloadVaccinationData()
                 _uiState.value = MainUiState.Success(freshData)
 
-                app.vaccinationDataCacheStore.write(freshData)
+                app.complicationDataCache.write(freshData)
 
                 // fresh data is cached now, so it's a good moment to update all complications
                 updateAllComplications(app)
@@ -40,7 +40,7 @@ class MainViewModel(app: Application) : AndroidViewModel(app) {
     }
 }
 
-fun VaccinationDataCache.toModel(): VaccinationData {
+fun ComplicationDataCache.toModel(): VaccinationData {
     return VaccinationData(
         firstVaccination = Percent(firstVaccination),
         fullVaccination = Percent(fullVaccination),
