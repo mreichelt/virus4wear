@@ -22,9 +22,9 @@ fun schedulePeriodicCovidDataUpdates(context: Context) {
         .build()
 
     val updateRequest: PeriodicWorkRequest =
-        PeriodicWorkRequestBuilder<UpdateCovidDataWorker>(12, HOURS)
+        PeriodicWorkRequestBuilder<UpdateCovidDataWorker>(6, HOURS)
             // do not run instantly
-            .setInitialDelay(12, HOURS)
+            .setInitialDelay(6, HOURS)
             .setConstraints(constraints)
             .build()
 
