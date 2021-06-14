@@ -1,2 +1,3 @@
 rootProject.name = "Covid 4 Wear"
 include ':app'
+include ':rki-covid-api'
