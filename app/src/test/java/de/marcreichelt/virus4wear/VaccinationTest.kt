@@ -1,4 +1,4 @@
-package de.marcreichelt.covid4wear
+package de.marcreichelt.virus4wear
 
 import kotlinx.coroutines.runBlocking
 import org.junit.Assert.assertEquals

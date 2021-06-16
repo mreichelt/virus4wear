@@ -1,4 +1,4 @@
-package de.marcreichelt.covid4wear
+package de.marcreichelt.virus4wear
 
 import okhttp3.ResponseBody
 import retrofit2.Retrofit

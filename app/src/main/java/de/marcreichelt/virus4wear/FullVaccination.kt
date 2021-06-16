@@ -1,4 +1,4 @@
-package de.marcreichelt.covid4wear
+package de.marcreichelt.virus4wear
 
 import android.graphics.drawable.Icon
 import android.support.wearable.complications.ComplicationManager

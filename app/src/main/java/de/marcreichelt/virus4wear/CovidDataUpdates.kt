@@ -1,4 +1,4 @@
-package de.marcreichelt.covid4wear
+package de.marcreichelt.virus4wear
 
 import android.content.Context
 import android.util.Log

@@ -8,7 +8,7 @@ android {
     compileSdkVersion 30
 
     defaultConfig {
-        applicationId "de.marcreichelt.covid4wear"
+        applicationId "de.marcreichelt.virus4wear"
         minSdkVersion 25
         targetSdkVersion 30
         versionCode 4
