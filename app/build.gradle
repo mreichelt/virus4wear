@@ -11,7 +11,7 @@ android {
         applicationId "de.marcreichelt.virus4wear"
         minSdkVersion 25
         targetSdkVersion 30
-        versionCode 4
+        versionCode 1
         versionName "1.0"
     }
 
