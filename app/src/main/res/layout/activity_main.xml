@@ -73,7 +73,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
                         android:gravity="center_vertical"
-                        android:text="@string/covid_vaccinations_single"
+                        android:text="@string/vaccinations_single"
                         android:textAppearance="@style/android:TextAppearance.Material.Body1" />
 
                     <TextView
@@ -113,7 +113,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
                         android:gravity="center_vertical"
-                        android:text="@string/covid_vaccinations_full"
+                        android:text="@string/vaccinations_full"
                         android:textAppearance="@style/android:TextAppearance.Material.Body1" />
 
                     <TextView

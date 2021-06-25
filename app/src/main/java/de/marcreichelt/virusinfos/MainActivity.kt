@@ -1,11 +1,11 @@
-package de.marcreichelt.virus4wear
+package de.marcreichelt.virusinfos
 
 import android.os.Bundle
 import android.view.View
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
-import de.marcreichelt.virus4wear.MainUiState.*
-import de.marcreichelt.virus4wear.databinding.ActivityMainBinding
+import de.marcreichelt.virusinfos.MainUiState.*
+import de.marcreichelt.virusinfos.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
 

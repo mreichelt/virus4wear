@@ -1,4 +1,4 @@
-package de.marcreichelt.virus4wear
+package de.marcreichelt.virusinfos
 
 import android.app.PendingIntent
 import android.content.ComponentName

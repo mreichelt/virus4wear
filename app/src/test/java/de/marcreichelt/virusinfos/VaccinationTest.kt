@@ -1,4 +1,4 @@
-package de.marcreichelt.virus4wear
+package de.marcreichelt.virusinfos
 
 import kotlinx.coroutines.runBlocking
 import org.junit.Assert.assertEquals

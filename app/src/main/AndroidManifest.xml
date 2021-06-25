@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="de.marcreichelt.virus4wear">
+    package="de.marcreichelt.virusinfos">
 
     <uses-feature android:name="android.hardware.type.watch" />
 
@@ -15,7 +15,7 @@
         android:usesCleartextTraffic="false">
 
         <activity
-            android:name=".MainActivity"
+            android:name="de.marcreichelt.virusinfos.MainActivity"
             android:launchMode="singleTop">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -28,9 +28,9 @@
             android:value="true" />
 
         <service
-            android:name=".SingleVaccinationComplicationProviderService"
+            android:name="de.marcreichelt.virusinfos.SingleVaccinationComplicationProviderService"
             android:icon="@drawable/ic_needle_single"
-            android:label="@string/covid_vaccinations_single"
+            android:label="@string/vaccinations_single"
             android:permission="com.google.android.wearable.permission.BIND_COMPLICATION_PROVIDER">
             <intent-filter>
                 <action android:name="android.support.wearable.complications.ACTION_COMPLICATION_UPDATE_REQUEST" />
@@ -45,9 +45,9 @@
         </service>
 
         <service
-            android:name=".FullVaccinationComplicationProviderService"
+            android:name="de.marcreichelt.virusinfos.FullVaccinationComplicationProviderService"
             android:icon="@drawable/ic_needle_full"
-            android:label="@string/covid_vaccinations_full"
+            android:label="@string/vaccinations_full"
             android:permission="com.google.android.wearable.permission.BIND_COMPLICATION_PROVIDER">
             <intent-filter>
                 <action android:name="android.support.wearable.complications.ACTION_COMPLICATION_UPDATE_REQUEST" />

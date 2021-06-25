@@ -1,4 +1,4 @@
-package de.marcreichelt.virus4wear
+package de.marcreichelt.virusinfos
 
 import android.content.Context
 import android.util.Log
