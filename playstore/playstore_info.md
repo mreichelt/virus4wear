@@ -2,11 +2,11 @@
 
 ## App Name
 
-Virus Infos
+Virus4Wear
 
 ## Short description
 
-Die neuesten Infos zur aktuellen Virus Lage - direkt auf deiner Android WearOS Smartwatch!
+Die neuesten Infos zur aktuellen Lage - auf deiner Android WearOS Smartwatch!
 
 ## Full description
 
@@ -21,7 +21,7 @@ Funktionen:
 So geht's:
 1. Mit deinem Finger lang auf dein Watchface drücken
 2. Gewünschten Platz wählen
-3. Zu "Virus Infos" scrollen
+3. Zu "Virus4Wear" scrollen
 4. Gewünschte Funktion (z.B. Voll geimpft) auswählen - fertig!
 
 Tipp: du kannst auch mehrere Virus Infos Complications gleichzeitig auf dein Watchface legen! ✅

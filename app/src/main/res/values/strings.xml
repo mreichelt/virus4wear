@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Virus Infos</string>
+    <string name="app_name">Virus4Wear</string>
     <string name="vaccinations_single">Erstimpfungen</string>
     <string name="vaccinations_full">Voll geimpft</string>
     <string name="error_data_not_loaded">Daten konnten nicht geladen werden</string>
