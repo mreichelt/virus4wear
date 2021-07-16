@@ -3,6 +3,7 @@ plugins {
     id 'kotlin-android'
     id "com.google.protobuf" version "0.8.12"
     id 'com.google.gms.google-services'
+    id 'com.google.firebase.crashlytics'
 }
 
 android {
@@ -44,6 +45,10 @@ dependencies {
     implementation "androidx.datastore:datastore:1.0.0-beta01"
     implementation "com.google.protobuf:protobuf-javalite:3.17.2"
     implementation "androidx.work:work-runtime-ktx:2.6.0-beta01"
+
+    implementation platform('com.google.firebase:firebase-bom:28.2.1')
+    implementation 'com.google.firebase:firebase-crashlytics-ktx'
+    implementation 'com.google.firebase:firebase-analytics-ktx'
 
     testImplementation 'junit:junit:4.13.2'
     testImplementation "org.jetbrains.kotlinx:kotlinx-coroutines-test:$kotlin_version"
