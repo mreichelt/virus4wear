@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "618498278882",
+    "project_id": "virus4wear",
+    "storage_bucket": "virus4wear.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:618498278882:android:b0a12fb0d46c2ab7f0a5bb",
+        "android_client_info": {
+          "package_name": "de.marcreichelt.virusinfos"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "618498278882-lgv8m4knf4sh0bpq7hkjd5hmitqqgh0g.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBGn5bNyT8rhKpwRV7ZLhzVoVd371odWUo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "618498278882-lgv8m4knf4sh0bpq7hkjd5hmitqqgh0g.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
